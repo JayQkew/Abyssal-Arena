@@ -62,7 +62,7 @@ namespace AppStates
 
     public abstract class State
     {
-        private AppState _manager;
+        protected AppState _manager;
 
         public virtual void Enter()
         {
