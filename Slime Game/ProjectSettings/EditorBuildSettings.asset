@@ -56,6 +56,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 28270a3e4370ad84cb08f97770b73bd7
+  - enabled: 1
+    path: Assets/Scenes/Lobby Refac.unity
+    guid: 2e883eaf9fbec7c4897ede57ba273daf
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: d5a16493e544c33458c7045d2ba32418, type: 3}
   m_UseUCBPForAssetBundles: 0

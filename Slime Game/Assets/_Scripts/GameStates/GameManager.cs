@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 
     private GameBaseState currState;
     public HowTo howTo = new HowTo();
-    public MapSelectState mapSelectState = new MapSelectState();
     public LobbyState lobbyState = new LobbyState();
     public RoundState roundState = new RoundState();
     public DraftState draftState = new DraftState();
@@ -41,7 +40,6 @@ public class GameManager : MonoBehaviour
                 currState = howTo;
                 break;
             case GameState.MapSelect:
-                currState = mapSelectState;
                 break;
             case GameState.Lobby:
                 currState = lobbyState;

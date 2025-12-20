@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AppStates.GameplayStates;
 using UnityEngine;
 
 namespace AppStates
@@ -17,7 +18,6 @@ namespace AppStates
 
         private Dictionary<AppStates, State> _states = new();
 
-
         private void Awake()
         {
             if (Instance == null)
@@ -29,13 +29,13 @@ namespace AppStates
             {
                 Destroy(gameObject);
             }
-            
+
             _states = new Dictionary<AppStates, State>()
             {
-                {AppStates.MainMenu, menuState},
-                {AppStates.Lobby, lobbyState},
-                {AppStates.Gameplay, gameplayState},
-                {AppStates.Podium, podiumState}
+                { AppStates.MainMenu, menuState },
+                { AppStates.Lobby, lobbyState },
+                { AppStates.Gameplay, gameplayState },
+                { AppStates.Podium, podiumState }
             };
         }
 
@@ -53,7 +53,7 @@ namespace AppStates
         public void SwitchState(AppStates nextState)
         {
             currState = nextState;
-            
+
             _currState.Exit();
             _currState = _states[nextState];
             _currState.Enter();
@@ -62,14 +62,11 @@ namespace AppStates
 
     public abstract class State
     {
-        protected AppState _manager;
+        protected AppState manager;
 
         public virtual void Enter()
         {
-            if (_manager == null)
-            {
-                _manager = AppState.Instance;
-            }
+            manager ??= AppState.Instance;
         }
 
         public abstract void Update();

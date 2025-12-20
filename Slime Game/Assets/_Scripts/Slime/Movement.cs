@@ -19,14 +19,17 @@ public class Movement : MonoBehaviour
     public float currFuel;
     [SerializeField] private bool isInflated;
 
-    private void Awake() {
+    private void Awake()
+    {
         _softBody = GetComponent<SoftBody>();
         inputHandler = transform.parent.GetComponent<InputHandler>();
         playerStats = GetComponent<PlayerStats>();
-        audioManager = AudioManager.Instance;
+
+        if (AudioManager.Instance != null) audioManager = GetComponent<AudioManager>();
     }
 
-    private void Start() {
+    private void Start()
+    {
         currFuel = playerStats.GetStatValue(StatName.Fuel);
         inputHandler.onInflate.AddListener(Inflate);
         inputHandler.onDeflate.AddListener(Deflate);
@@ -34,52 +37,63 @@ public class Movement : MonoBehaviour
         inputHandler.onDash.AddListener(Dash);
     }
 
-    private void Update() {
+    private void Update()
+    {
         Move(inputHandler.moveInput);
         if (Grounded()) currFuel = playerStats.GetStatValue(StatName.Fuel);
         if (isInflated) _softBody.currRadius = SetSlimeRadius();
     }
 
-    private void Move(Vector2 dir) {
+    private void Move(Vector2 dir)
+    {
         Vector2 constrainedDir = new Vector2(dir.x, 0);
 
-        if (isInflated) {
-            if (currFuel > 0 && dir != Vector2.zero) {
+        if (isInflated)
+        {
+            if (currFuel > 0 && dir != Vector2.zero)
+            {
                 MoveForce(dir);
-                if(moveConsumeFuel) currFuel -= playerStats.GetStatValue(StatName.MoveCost) * Time.deltaTime;
+                if (moveConsumeFuel) currFuel -= playerStats.GetStatValue(StatName.MoveCost) * Time.deltaTime;
             }
             // else MoveForce(constrainedDir);
         }
-        else {
+        else
+        {
             MoveForce(constrainedDir);
         }
     }
 
-    private void MoveForce(Vector2 dir) {
-        float moveMult = surfaceSpeed == null ?
-            playerStats.GetStatValue(StatName.MoveSpeed) :
-            surfaceSpeed.currValue;
-        foreach (Rigidbody2D rb in _softBody.nodesRb) {
+    private void MoveForce(Vector2 dir)
+    {
+        float moveMult = surfaceSpeed == null ? playerStats.GetStatValue(StatName.MoveSpeed) : surfaceSpeed.currValue;
+        foreach (Rigidbody2D rb in _softBody.nodesRb)
+        {
             if (rb.transform.position.y >= _softBody.transform.position.y)
                 rb.AddForce(dir * (moveMult * 100 * Time.deltaTime), ForceMode2D.Force);
             else rb.AddForce(dir * (moveMult * 50 * Time.deltaTime), ForceMode2D.Force);
         }
     }
 
-    public void Inflate() {
-        foreach (Rigidbody2D rb in _softBody.nodesRb) {
+    public void Inflate()
+    {
+        foreach (Rigidbody2D rb in _softBody.nodesRb)
+        {
             rb.gravityScale = 0;
         }
 
         isInflated = true;
         _softBody.currRadius = SetSlimeRadius();
         _softBody.frequency = playerStats.GetStatValue(StatName.MaxFrequency);
+
+        if (audioManager == null) return;
         audioManager.inflateAudioSource = GetComponentInParent<AudioSource>();
         audioManager.InflateMusic();
     }
 
-    public void Deflate() {
-        foreach (Rigidbody2D rb in _softBody.nodesRb) {
+    public void Deflate()
+    {
+        foreach (Rigidbody2D rb in _softBody.nodesRb)
+        {
             rb.gravityScale = 1;
         }
 
@@ -88,41 +102,58 @@ public class Movement : MonoBehaviour
         _softBody.frequency = playerStats.GetStatValue(StatName.MinFrequency);
     }
 
-    public void Dash() {
-        if (currFuel > 0 && inputHandler.aimInput != Vector2.zero) {
-            foreach (Rigidbody2D rb in _softBody.nodesRb) {
+    public void Dash()
+    {
+        if (currFuel > 0 && inputHandler.aimInput != Vector2.zero)
+        {
+            foreach (Rigidbody2D rb in _softBody.nodesRb)
+            {
                 rb.linearVelocity = Vector2.zero;
                 rb.AddForce(inputHandler.aimInput * playerStats.GetStatValue(StatName.DashForce), ForceMode2D.Impulse);
+                if (audioManager == null) return;
+
                 audioManager.dashSplashAudioSource = GetComponentInParent<AudioSource>();
                 audioManager.DashSplashMusic();
             }
+
             if (dashConsumeFuel) currFuel -= playerStats.GetStatValue(StatName.DashCost);
         }
     }
 
-    private bool Grounded() {
-        foreach (SoftBodyNode node in _softBody.nodeScripts) {
+    private bool Grounded()
+    {
+        foreach (SoftBodyNode node in _softBody.nodeScripts)
+        {
             if (node.touchingGround) return true;
         }
+
         return false;
     }
 
-    public bool TouchingSurface() {
-        foreach (SoftBodyNode node in _softBody.nodeScripts) {
+    public bool TouchingSurface()
+    {
+        foreach (SoftBodyNode node in _softBody.nodeScripts)
+        {
             if (node.touchingGround || node.touchingSurface) return true;
         }
+
         return false;
     }
 
-    private float SetSlimeRadius() {
+    private float SetSlimeRadius()
+    {
         float minRadius = playerStats.GetStatValue(StatName.MinRadius);
         float radiusDiff = playerStats.GetStatValue(StatName.MaxRadius) - minRadius;
         return radiusDiff + minRadius;
     }
 
-    public void AirRefill(float amount) {
+    public void AirRefill(float amount)
+    {
         float maxFuel = playerStats.GetStatValue(StatName.Fuel);
         currFuel += amount;
+        
+        if (audioManager == null) return;
+        
         audioManager.eatAudioSource = GetComponentInParent<AudioSource>();
         audioManager.EatMusic();
         if (currFuel > maxFuel) currFuel = maxFuel;

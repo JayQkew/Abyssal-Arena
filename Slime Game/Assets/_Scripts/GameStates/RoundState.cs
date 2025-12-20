@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Maps;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -29,7 +30,7 @@ public class RoundState : GameBaseState
     public override void EnterState(GameManager manager) {
         currRoundTime = maxRoundTime;
         gm = manager;
-        MapManager.Instance.NextMap();
+        // MapManager.Instance.LoadMap();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 

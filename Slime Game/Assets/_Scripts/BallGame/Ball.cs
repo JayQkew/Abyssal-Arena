@@ -12,11 +12,15 @@ public class Ball : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Start() {
+    private void Start()
+    {
+        if (PointManager.Instance == null) return;
         PointManager.Instance.onScoreEnd.AddListener(Respawn);
     }
 
     private void OnDestroy() {
+        if (PointManager.Instance == null) return;
+        
         PointManager.Instance.onScoreEnd.RemoveListener(Respawn);
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }

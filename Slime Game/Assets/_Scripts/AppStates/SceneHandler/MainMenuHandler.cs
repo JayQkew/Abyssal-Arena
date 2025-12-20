@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace AppStates.SceneHandler
 {
-    public class MainMenu : MonoBehaviour
+    public class MainMenuHandler : MonoBehaviour
     {
         public void ToLobby() => AppState.Instance.SwitchState(AppStates.Lobby);
 
