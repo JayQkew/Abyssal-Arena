@@ -1,3 +1,4 @@
+using AppStates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,8 @@ public class StartScreen : MonoBehaviour
     public void GoToMapSelect() {
         GameManager.Instance.SwitchState(GameState.MapSelect);
     }
+
+    public void ToLobby() => AppState.Instance.SwitchState(AppStates.AppStates.Lobby);
 
     public void ExitGame() {
         Application.Quit();
