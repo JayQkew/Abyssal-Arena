@@ -110,7 +110,7 @@ public class Multiplayer : MonoBehaviour
     
     private void SetReady(int playerIndex) {
         if (SceneManager.GetActiveScene().name == "Lobby" +
-            "") {
+            " Refac") {
             ready[playerIndex] = !ready[playerIndex];
         }
     }

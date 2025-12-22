@@ -7,6 +7,7 @@ namespace AppStates.GameplayStates
     [Serializable]
     public class Gameplay : State
     {
+        public int[] points;
         public GameplayStates currState;
         private GameplayState _currState;
 
@@ -46,6 +47,31 @@ namespace AppStates.GameplayStates
             _currState.Exit();
             _currState = _states[currState];
             _currState.Enter(this);
+        }
+
+        public void PlayerPoint(int playerIndex)
+        {
+            points[playerIndex]++;
+            
+            if (GameConditionMet(playerIndex))
+            {
+                manager.SwitchState(AppStates.Podium); //with player that won
+            }
+            else
+            {
+                SwitchState(GameplayStates.Draft); //with player that lost
+            }
+        }
+
+        public bool GameConditionMet(int playerIndex)
+        {
+            int currScore = points[playerIndex];
+            int otherScore = points[1 - playerIndex];
+            
+            bool gamePoint = currScore >= 4;
+            bool leadByTwo = (currScore - otherScore) >= 2;
+            
+            return gamePoint && leadByTwo;
         }
     }
 
