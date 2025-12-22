@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Maps
 {
-    public class MatchHelper : MonoBehaviour
+    public class MatchHandler : MonoBehaviour
     {
         // also add all the references to the UI here
         

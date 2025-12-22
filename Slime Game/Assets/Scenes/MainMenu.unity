@@ -1473,6 +1473,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currState: 0
+  gameplayState:
+    points: 0000000000000000
+    currState: 0
+    matchState:
+      points: 0000000000000000
+      winPoints: 3
+      countdown:
+        maxTime: 120
+        currTime: 0
+        repeat: 0
+      suddenDeath:
+        maxTime: 30
+        currTime: 0
+        repeat: 0
+      onSuddenDeath:
+        m_PersistentCalls:
+          m_Calls: []
+    draftState:
+      draftSize: 3
+      cards: []
+      allCards: {fileID: 11400000, guid: 2af61f6007be98c4cafcd20647d947af, type: 2}
 --- !u!1 &1796552892
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,10 +9,10 @@ namespace AppStates.GameplayStates
     [Serializable]
     public class Match : GameplayState
     {
-        public int[] points;
-        [SerializeField] private int winPoints;
-        public Countdown countdown; // till sudden death
-        public Countdown suddenDeath;
+        public int[] points = new int[2];
+        [SerializeField] private int winPoints = 3;
+        public Countdown countdown = new(120); // till sudden death
+        public Countdown suddenDeath = new(10);
         private MapManager _mapManager;
 
         [HideInInspector] public UnityEvent onSuddenDeath;
@@ -52,6 +52,8 @@ namespace AppStates.GameplayStates
 
         public override void Exit()
         {
+            points[0] = 0;
+            points[1] = 0;
         }
 
         private void PointTesting()

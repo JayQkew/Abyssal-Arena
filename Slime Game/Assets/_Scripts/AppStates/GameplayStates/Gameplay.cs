@@ -7,10 +7,10 @@ namespace AppStates.GameplayStates
     [Serializable]
     public class Gameplay : State
     {
-        public int[] points;
-        public GameplayStates currState;
+        public int[] points = new int[2];
+        
         private GameplayState _currState;
-
+        public GameplayStates currState;
         public Match matchState = new();
         public Draft draftState = new();
 
@@ -38,6 +38,8 @@ namespace AppStates.GameplayStates
 
         public override void Exit()
         {
+            points[0] = 0;
+            points[1] = 0;
         }
 
         public void SwitchState(GameplayStates state)
@@ -59,6 +61,8 @@ namespace AppStates.GameplayStates
             }
             else
             {
+                draftState.lostPlayerDeck = Multiplayer.Instance.players[1 - playerIndex].transform
+                    .GetComponentInChildren<Deck>();
                 SwitchState(GameplayStates.Draft); //with player that lost
             }
         }
