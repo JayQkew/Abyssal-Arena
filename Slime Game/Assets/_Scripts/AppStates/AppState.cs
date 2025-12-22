@@ -31,7 +31,7 @@ namespace AppStates
                 Destroy(gameObject);
             }
 
-            _states = new Dictionary<AppStates, State>()
+            _states = new Dictionary<AppStates, State>
             {
                 { AppStates.MainMenu, menuState },
                 { AppStates.Lobby, lobbyState },

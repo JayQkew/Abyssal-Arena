@@ -20,7 +20,7 @@ namespace AppStates.GameplayStates
         {
             base.Enter();
 
-            _states = new Dictionary<GameplayStates, GameplayState>()
+            _states = new Dictionary<GameplayStates, GameplayState>
             {
                 { GameplayStates.Match, matchState },
                 { GameplayStates.Draft, draftState },

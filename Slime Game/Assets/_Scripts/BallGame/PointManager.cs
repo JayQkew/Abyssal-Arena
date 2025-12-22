@@ -95,16 +95,16 @@ public class PointManager : MonoBehaviour
                 roundsWon[i] = 0;
             }
 
-            GameManager.Instance.podiumState.winnerNumber = playerScored;
-            GameManager.Instance.SwitchState(GameState.Podium);
+            // GameManager.Instance.podiumState.winnerNumber = playerScored;
+            // GameManager.Instance.SwitchState(GameState.Podium);
         }
         else {
             Deck lostPlayerDeck = Multiplayer.Instance.players[(playerScored + 1) % 2].transform.GetChild(0)
                 .GetComponent<Deck>();
             int winner = playerScored;
-            GameManager.Instance.draftState.lostPlayerDeck = lostPlayerDeck;
-            GameManager.Instance.draftState.winner = winner;
-            GameManager.Instance.SwitchState(GameState.Draft);
+            // GameManager.Instance.draftState.lostPlayerDeck = lostPlayerDeck;
+            // GameManager.Instance.draftState.winner = winner;
+            // GameManager.Instance.SwitchState(GameState.Draft);
         }
     }
 }

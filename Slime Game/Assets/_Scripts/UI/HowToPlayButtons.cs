@@ -72,8 +72,4 @@ public class HowToPlayButtons : MonoBehaviour
         if (currIndex < 0) currIndex = xPos.Length - 1;
         targetPos = new Vector3(xPos[currIndex], 0, -10);
     }
-
-    public void GoToMapSelect() {
-        GameManager.Instance.SwitchState(GameState.MapSelect);
-    }
 }
