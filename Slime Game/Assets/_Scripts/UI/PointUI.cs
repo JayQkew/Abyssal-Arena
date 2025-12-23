@@ -13,6 +13,10 @@ public class PointUI : MonoBehaviour
     private Image[,] _points = new Image[2,3];
     [SerializeField] private Gradient sliderGradient;
     [SerializeField] private Image[] sliderFill;
+    
+    [SerializeField] private TextMeshProUGUI[] gamePoints = new TextMeshProUGUI[2];
+    [SerializeField] private TextMeshProUGUI[] setPoints = new TextMeshProUGUI[2];
+    [SerializeField] private TextMeshProUGUI time;
 
     private void Awake() {
         if (Instance == null) {
