@@ -24,9 +24,9 @@ MonoBehaviour:
     m_Value: {r: 1.4980394, g: 1.4980394, b: 1.4980394, a: 1}
   hueShift:
     m_OverrideState: 1
-    m_Value: 90
+    m_Value: 0
   saturation:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -64,7 +64,7 @@ MonoBehaviour:
     m_Value: 0.9
   intensity:
     m_OverrideState: 1
-    m_Value: 3.76
+    m_Value: 1.5
   scatter:
     m_OverrideState: 0
     m_Value: 0
