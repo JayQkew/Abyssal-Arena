@@ -10,7 +10,7 @@ namespace AppStates
         public override void Enter()
         {
             base.Enter();
-            SceneManager.LoadScene("Lobby Refac");
+            SceneManager.LoadScene("Lobby");
         }
 
         public override void Update()

@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -36,7 +37,6 @@ public class PointManager : MonoBehaviour
     // 0 index for playerScored
     public void Score(int playerScored) {
         points[playerScored]++;
-        PointUI.Instance.UpdatePointsUI(playerScored, points[playerScored]);
         if (points[playerScored] >= pointsToWinRound || suddenDeath) {
             RoundWon(playerScored);
             return;

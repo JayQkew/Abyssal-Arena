@@ -26,7 +26,7 @@ public class Ball : MonoBehaviour
         AppState.Instance.gameplayState.matchState.onScore.RemoveListener(Respawn);
     }
 
-    private void Respawn() {
+    private void Respawn(int[] i) {
         _rb.linearVelocity = Vector2.zero;
         _rb.angularVelocity = 0f;
         _rb.rotation = 0f;

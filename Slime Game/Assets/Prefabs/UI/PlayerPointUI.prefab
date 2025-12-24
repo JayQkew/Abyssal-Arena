@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2011896890225472084}
   - component: {fileID: 7604513724270197979}
   - component: {fileID: 6858482740601179210}
+  - component: {fileID: 2105731987339995757}
   m_Layer: 5
   m_Name: PlayerPointUI
   m_TagString: Untagged
@@ -79,6 +80,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!222 &2105731987339995757
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167932710737422882}
+  m_CullTransparentMesh: 1
 --- !u!1 &6621533253357440583
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +100,7 @@ GameObject:
   - component: {fileID: 4119975871033686708}
   - component: {fileID: 6585136419829732040}
   m_Layer: 5
-  m_Name: Game Point
+  m_Name: Set Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +123,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4119975871033686708
 CanvasRenderer:
@@ -144,12 +153,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '00
-
-'
+  m_text: 30
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9492ed8b43883a44a81d0620e4bbd2fa, type: 2}
-  m_sharedMaterial: {fileID: 3157308370544970185, guid: 9492ed8b43883a44a81d0620e4bbd2fa, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0d7d0d3560f436b4abff04e6558130a2, type: 2}
+  m_sharedMaterial: {fileID: -2582968645274527773, guid: 0d7d0d3560f436b4abff04e6558130a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -173,15 +180,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.65
-  m_fontSizeBase: 18
+  m_fontSize: 60
+  m_fontSizeBase: 64
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_fontStyle: 1
+  m_HorizontalAlignment: 32
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -229,7 +236,7 @@ GameObject:
   - component: {fileID: 578165116325495276}
   - component: {fileID: 8002995123220698558}
   m_Layer: 5
-  m_Name: Set Point
+  m_Name: Game Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,8 +291,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9492ed8b43883a44a81d0620e4bbd2fa, type: 2}
-  m_sharedMaterial: {fileID: 3157308370544970185, guid: 9492ed8b43883a44a81d0620e4bbd2fa, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0d7d0d3560f436b4abff04e6558130a2, type: 2}
+  m_sharedMaterial: {fileID: -2582968645274527773, guid: 0d7d0d3560f436b4abff04e6558130a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -309,15 +316,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 36
+  m_fontSize: 128
+  m_fontSizeBase: 128
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 32
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

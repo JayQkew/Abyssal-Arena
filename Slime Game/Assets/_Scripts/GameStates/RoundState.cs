@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Maps;
+using UI;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -36,7 +37,6 @@ public class RoundState : GameBaseState
 
     public override void UpdateState(GameManager manager) {
         currRoundTime -= Time.deltaTime;
-        PointUI.Instance?.UpdateTimer(currRoundTime);
         if (currRoundTime <= 0) {
             // check if a player is in the lead, otherwise go into sudden death
             text.SetActive(true);
@@ -77,9 +77,6 @@ public class RoundState : GameBaseState
             spawns[i] = spawnParent.GetChild(i);
         }
         ResetPlayerPos();
-        PointUI.Instance.UpdateRoundsWon();
-        PointUI.Instance.UpdateAdvantage();
-        PointUI.Instance.SetTimerMaxValue(maxRoundTime);
         SetUpProps();
         
         cinemachineCamera = Object.FindObjectOfType<CinemachineCamera>();

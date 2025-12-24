@@ -9,38 +9,41 @@ using UnityEngine.Serialization;
 public class Multiplayer : MonoBehaviour
 {
     public static Multiplayer Instance { get; private set; }
-    private PlayerInputManager _playerInputManager; 
+    private PlayerInputManager _playerInputManager;
     public PlayerInput[] playerInputs = new PlayerInput[2];
     public GameObject[] players = new GameObject[2];
     public bool[] ready = new bool[2];
 
-    [Header("Soft Body")]
-    [SerializeField] private String[] layers;
+    [Header("Soft Body")] [SerializeField] private String[] layers;
     [SerializeField] private Material[] materials;
-    
-    [Header("Player")]
-    [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private GameObject[] faces; 
-    
+
+    [Header("Player")] [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private GameObject[] faces;
+
     private MultiplayerCollider _multiplayerCollider;
-    private void Awake() {
-        if (Instance == null) {
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
             Instance = this;
             DontDestroyOnLoad(this);
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
-        else {
+        else
+        {
             Destroy(this);
         }
-        
+
         _playerInputManager = GetComponent<PlayerInputManager>();
         _multiplayerCollider = GetComponent<MultiplayerCollider>();
     }
 
-    public void OnPlayerJoined(PlayerInput playerInput) {
+    public void OnPlayerJoined(PlayerInput playerInput)
+    {
         SetSoftBody(playerInput);
         SetPlayer(playerInput);
-        
+
         players[_playerInputManager.playerCount - 1] = playerInput.gameObject;
         playerInputs[_playerInputManager.playerCount - 1] = playerInput;
 
@@ -48,44 +51,44 @@ public class Multiplayer : MonoBehaviour
         _multiplayerCollider.OnPlayerJoined(playerInput);
     }
 
-    private void SetSoftBody(PlayerInput playerInput) {
+    private void SetSoftBody(PlayerInput playerInput)
+    {
         GameObject softBody = playerInput.transform.GetChild(0).gameObject;
         softBody.transform.position = Vector3.zero;
         softBody.layer = LayerMask.NameToLayer(layers[_playerInputManager.playerCount - 1]);
         softBody.GetComponent<SoftBody>().meshMaterial = materials[_playerInputManager.playerCount - 1];
     }
 
-    private void SetPlayer(PlayerInput playerInput) {
+    private void SetPlayer(PlayerInput playerInput)
+    {
         playerInput.gameObject.name = $"Player {_playerInputManager.playerCount}";
         playerInput.transform.SetParent(transform);
         playerInput.transform.position = spawnPoints[_playerInputManager.playerCount - 1].position;
-        Instantiate(faces[_playerInputManager.playerCount-1], playerInput.gameObject.transform.GetChild(0).transform, false);
-        SetTenticles(playerInput);
+        Instantiate(faces[_playerInputManager.playerCount - 1], playerInput.gameObject.transform.GetChild(0).transform,
+            false);
     }
 
-    private void SetTenticles(PlayerInput playerInput) {
-        Transform tenticleParent = playerInput.gameObject.transform.GetChild(0).GetChild(0);
-        for (int i = 0; i < 3; i++) {
-            tenticleParent.GetChild(i).GetComponent<SpriteRenderer>().material = materials[_playerInputManager.playerCount - 1];
-        }
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        if (scene.name != "Draft" && scene.name != "StartScreen" && scene.name != "MapSelect" && scene.name != "Podium") {
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name != "Draft" && scene.name != "StartScreen" && scene.name != "MapSelect" && scene.name != "Podium")
+        {
             spawnPoints = new Transform[2];
             Transform playerSpawnPoints = GameObject.FindGameObjectWithTag("PlayerSpawns").transform;
-            for (int i = 0; i < spawnPoints.Length; i++) {
+            for (int i = 0; i < spawnPoints.Length; i++)
+            {
                 spawnPoints[i] = playerSpawnPoints.GetChild(i);
             }
         }
     }
 
-    public void SetUIInteraction(int player, bool active) {
+    public void SetUIInteraction(int player, bool active)
+    {
         PlayerInput playerInput = playerInputs[player];
         EventSystem.current.GetComponent<InputSystemUIInputModule>().actionsAsset = playerInput.actions;
-    
+
         Debug.Log(playerInput);
-        if (active) {
+        if (active)
+        {
             // Enable UI actions
             playerInput.actions["Navigate"].Enable();
             playerInput.actions["Submit"].Enable();
@@ -95,7 +98,9 @@ public class Multiplayer : MonoBehaviour
             playerInput.actions["ScrollWheel"].Enable();
             playerInput.actions["MiddleClick"].Enable();
             playerInput.actions["RightClick"].Enable();
-        } else {
+        }
+        else
+        {
             // Disable UI actions
             playerInput.actions["Navigate"].Disable();
             playerInput.actions["Submit"].Disable();
@@ -107,11 +112,9 @@ public class Multiplayer : MonoBehaviour
             playerInput.actions["RightClick"].Disable();
         }
     }
-    
-    private void SetReady(int playerIndex) {
-        if (SceneManager.GetActiveScene().name == "Lobby" +
-            " Refac") {
-            ready[playerIndex] = !ready[playerIndex];
-        }
+
+    private void SetReady(int playerIndex)
+    {
+        ready[playerIndex] = !ready[playerIndex];
     }
 }

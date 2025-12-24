@@ -16,7 +16,7 @@ namespace AppStates.GameplayStates
         private MapManager _mapManager;
 
         [HideInInspector] public UnityEvent onSuddenDeath;
-        [HideInInspector] public UnityEvent onScore;
+        [HideInInspector] public UnityEvent<int[]> onScore;
 
         public override void Enter(Gameplay m)
         {
@@ -68,7 +68,7 @@ namespace AppStates.GameplayStates
         public void PlayerPoint(int playerIndex)
         {
             points[playerIndex]++;
-            onScore.Invoke();
+            onScore.Invoke(points);
             if (MatchConditionMet(playerIndex))
             {
                 manager.PlayerPoint(playerIndex);
