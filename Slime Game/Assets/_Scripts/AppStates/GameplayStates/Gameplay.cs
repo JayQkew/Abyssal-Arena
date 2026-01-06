@@ -90,8 +90,8 @@ namespace AppStates.GameplayStates
             {
                 if (points[0] == points[1])
                 {
-                    p[0] = "D"; // Or "Deuce"
-                    p[1] = "D"; // Or "Deuce"
+                    p[0] = "40"; // Or "Deuce"
+                    p[1] = "40"; // Or "Deuce"
                 }
                 else if (points[0] > points[1])
                 {

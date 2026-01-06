@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Stats;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -43,7 +44,7 @@ public class SoftBody : MonoBehaviour
     }
 
     private void Start() {
-        oldRadius = playerStats.GetStatValue(StatName.MinRadius);
+        oldRadius = playerStats.radius.min;
         currRadius = oldRadius;
         CreateNodes();
         ArrangeNodes();

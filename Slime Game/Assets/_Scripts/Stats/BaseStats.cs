@@ -1,7 +1,17 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Stats System/Player Stats")]
-public class BaseStats : ScriptableObject
+namespace Stats
 {
-    public Stat[] stats;
+    [CreateAssetMenu(menuName = "Stats System/Player Stats")]
+    public class BaseStats : ScriptableObject
+    {
+        public float fuel;
+        public float moveSpeed;
+        public MinMax radius;
+        public MinMax frequency;
+        public float dashCooldown;
+        public float dashForce;
+        public float dashCost;
+        public float inflateTime;
+    }
 }

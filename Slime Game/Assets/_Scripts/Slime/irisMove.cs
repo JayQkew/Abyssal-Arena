@@ -1,3 +1,4 @@
+using Slime;
 using UnityEngine;
 
 public class IrisMove : MonoBehaviour

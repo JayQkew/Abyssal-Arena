@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Stats;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
@@ -18,7 +19,7 @@ public class Deck : MonoBehaviour
     /// <param name="card">the card added</param>
     public void AddCard(Card card) {
         foreach (Modifier modifier in card.modifiers) {
-            playerStats.ModifyStat(modifier);
+            // playerStats.ModifyStat(modifier);
         }
 
         foreach (GameObject ability in card.abilities) {
