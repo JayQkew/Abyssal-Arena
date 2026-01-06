@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class Card
 {
     public string cardName;
-    public Modifier[] modifiers;
     public GameObject[] abilities;
     public string description;
     public Sprite icon;

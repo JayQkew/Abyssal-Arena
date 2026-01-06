@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class FuelUI : MonoBehaviour
 {
     [SerializeField] private Slider slider;
+    [SerializeField] private PlayerStats playerStats;
     private void Update() {
-        slider.maxValue = GetComponent<PlayerStats>().fuel;
+        slider.maxValue = playerStats.Fuel;
         slider.value = GetComponent<Movement>().currFuel;
     }
 }

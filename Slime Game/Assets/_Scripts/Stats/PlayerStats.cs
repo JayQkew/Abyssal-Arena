@@ -2,28 +2,25 @@ using UnityEngine;
 
 namespace Stats
 {
-    public class PlayerStats : MonoBehaviour
+    [CreateAssetMenu(menuName = "Stats/Player")]
+    public class PlayerStats : ScriptableObject
     {
-        [SerializeField] private BaseStats baseStats;
+        [field:SerializeField] public float Fuel { get; private set; }
+        [field:SerializeField] public float MoveSpeed { get; private set; }
+        [field:SerializeField] public MinMax Radius { get; private set; }
+        [field:SerializeField] public MinMax Frequency { get; private set; }
+        [field:SerializeField] public float DashCooldown { get; private set; }
+        [field:SerializeField] public float DashForce { get; private set; }
+        [field:SerializeField] public float DashCost { get; private set; }
+        [field:SerializeField] public float InflateTime { get; private set; }
 
-        public float fuel;
-        public float moveSpeed;
-        public MinMax radius;
-        public MinMax frequency;
-        public float dashCooldown;
-        public float dashForce;
-        public float dashCost;
-        public float inflateTime;
-    
-        private void Awake() {
-            fuel = baseStats.fuel;
-            moveSpeed = baseStats.moveSpeed;
-            radius = baseStats.radius;
-            frequency = baseStats.frequency;
-            dashCooldown = baseStats.dashCooldown;
-            dashForce = baseStats.dashForce;
-            dashCost = baseStats.dashCost;
-            inflateTime = baseStats.inflateTime;
-        }
+        public void SetFuel(float v) => Fuel = v;
+        public void SetMoveSpeed(float v) => MoveSpeed = v;
+        public void SetRadius(MinMax v) => Radius = v;
+        public void SetFrequency(MinMax v) => Frequency = v;
+        public void SetDashCooldown(float v) => DashCooldown = v;
+        public void SetDashForce(float v) => DashForce = v;
+        public void SetDashCost(float v) => DashCost = v;
+        public void SetInflateTime(float v) => InflateTime = v;
     }
 }

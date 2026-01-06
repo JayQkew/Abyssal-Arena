@@ -10,7 +10,7 @@ using UnityEngine.Serialization;
 //This video describes how he made the soft body, I inferred from this video to create this portable softbody script. 
 public class SoftBody : MonoBehaviour
 {
-    private PlayerStats playerStats;
+    [SerializeField] private PlayerStats playerStats;
 
     [Range(3, 40), SerializeField] private int numberOfNodes;
     private float oldRadius;
@@ -39,12 +39,8 @@ public class SoftBody : MonoBehaviour
     private Vector2[] _uvs;
     private int[] _tris;
 
-    private void Awake() {
-        playerStats = GetComponent<PlayerStats>();
-    }
-
     private void Start() {
-        oldRadius = playerStats.radius.min;
+        oldRadius = playerStats.Radius.min;
         currRadius = oldRadius;
         CreateNodes();
         ArrangeNodes();
