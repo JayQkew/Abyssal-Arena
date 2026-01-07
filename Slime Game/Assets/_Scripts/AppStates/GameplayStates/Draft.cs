@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cards;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -12,23 +13,13 @@ namespace AppStates.GameplayStates
         public Deck lostPlayerDeck;
         
         public int draftSize;
-        public List<Card> cards;
-        [SerializeField] private AllCards allCards;
-
-        private bool _firstTime = true;
+        public List<Card> cards = new();
 
         public override void Enter(Gameplay m)
         {
             base.Enter(m);
 
             SceneManager.LoadScene("Draft");
-
-            if (_firstTime)
-            {
-                cards = new List<Card>();
-                cards.AddRange(allCards.cards);
-                _firstTime = false;
-            }
         }
 
         public override void Update()
@@ -41,10 +32,13 @@ namespace AppStates.GameplayStates
 
         public Card[] DraftCards()
         {
+            List<Card> availableCards = cards;
             Card[] selectedCards = new Card[draftSize];
             for (int i = 0; i < draftSize; i++)
             {
-                Card card = cards[Random.Range(0, cards.Count)];
+                int randomIndex = Random.Range(0, availableCards.Count);
+                Card card = availableCards[randomIndex];
+                availableCards.RemoveAt(randomIndex);
                 selectedCards[i] = card;
             }
             return selectedCards;

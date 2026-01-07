@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Cards;
 using UnityEngine;
 
 namespace Stats
@@ -13,6 +15,8 @@ namespace Stats
         [field:SerializeField] public float DashForce { get; private set; }
         [field:SerializeField] public float DashCost { get; private set; }
         [field:SerializeField] public float InflateTime { get; private set; }
+
+        public List<Card> cards = new();
 
         public void SetFuel(float v) => Fuel = v;
         public void SetMoveSpeed(float v) => MoveSpeed = v;

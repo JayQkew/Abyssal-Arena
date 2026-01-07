@@ -1,5 +1,6 @@
 using System;
 using AppStates.GameplayStates;
+using Cards;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -21,7 +22,7 @@ namespace AppStates.SceneHandler
             for (int i = 0; i < draftedCards.Length; i++)
             {
                 GameObject card = Instantiate(cardPrefab, draftParent);
-                card.GetComponent<CardLogic>().SetCard(draftedCards[i]);
+                // card.GetComponent<CardLogic>().SetCard(draftedCards[i]);
                 if (i == 0) EventSystem.current.firstSelectedGameObject = card;
             }
         }
