@@ -103,9 +103,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -2613247888821195678, guid: a3918dd064e783340a2960aeec1ad72b, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -626,6 +626,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 0}
   anim: {fileID: 0}
-  header: {fileID: 0}
-  description: {fileID: 0}
-  icon: {fileID: 0}
+  header: {fileID: 5149844646852086702}
+  description: {fileID: 7990519995656775665}
+  icon: {fileID: 3478650324919550151}

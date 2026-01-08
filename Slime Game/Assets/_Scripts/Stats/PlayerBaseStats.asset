@@ -24,3 +24,4 @@ MonoBehaviour:
   <DashForce>k__BackingField: 2.5
   <DashCost>k__BackingField: 30
   <InflateTime>k__BackingField: 50
+  cards: []

@@ -41,6 +41,7 @@ namespace Cards
         public void OnSubmit(BaseEventData eventData)
         {
             _draft.lostPlayerDeck.AddCard(card);
+            StartCoroutine(Choose());
         }
 
         private IEnumerator Choose()
