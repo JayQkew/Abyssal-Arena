@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Maps
+namespace AppStates.SceneHandler
 {
     public class MatchHandler : MonoBehaviour
     {
@@ -12,9 +11,12 @@ namespace Maps
         private void Start()
         {
             // Spawns the player in their designated areas
+            GameObject[] players = Multiplayer.Instance.players;
             for (int i = 0; i < playerSpawns.Length; i++)
             {
-                Multiplayer.Instance.players[i].transform.position = playerSpawns[i].position;
+                SoftBody softBody = players[i].GetComponentInChildren<SoftBody>();
+                softBody.MoveSoftBody(playerSpawns[i].position);
+                softBody.ResetVelocity();
             }
         }
     }
