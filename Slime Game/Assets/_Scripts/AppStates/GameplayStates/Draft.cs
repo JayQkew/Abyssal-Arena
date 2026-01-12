@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Cards;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,7 +33,7 @@ namespace AppStates.GameplayStates
 
         public Card[] DraftCards()
         {
-            List<Card> availableCards = cards;
+            List<Card> availableCards = cards.ToList();
             Card[] selectedCards = new Card[draftSize];
             for (int i = 0; i < draftSize; i++)
             {

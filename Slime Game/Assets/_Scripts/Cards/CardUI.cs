@@ -9,8 +9,9 @@ using UnityEngine.UI;
 
 namespace Cards
 {
-    public class CardUI : MonoBehaviour, ISubmitHandler, ISelectHandler
+    public class CardUI : MonoBehaviour, ISubmitHandler, ISelectHandler, IDeselectHandler
     {
+        private static readonly int Hover = Animator.StringToHash("Hover");
         [SerializeField] private Card card;
 
         [SerializeField] private Animator anim;
@@ -19,7 +20,6 @@ namespace Cards
         [SerializeField] private Image icon;
         
         private WaitForSeconds _submitWait = new WaitForSeconds(1f);
-        
         private Draft _draft;
         private void Start()
         {
@@ -36,6 +36,13 @@ namespace Cards
 
         public void OnSelect(BaseEventData eventData)
         {
+            anim.SetBool(Hover, true);
+        }
+        
+        
+        public void OnDeselect(BaseEventData eventData)
+        {
+            anim.SetBool(Hover, false);
         }
 
         public void OnSubmit(BaseEventData eventData)
@@ -49,5 +56,6 @@ namespace Cards
             yield return _submitWait;
             AppState.Instance.gameplayState.SwitchState(GameplayStates.Match);
         }
+
     }
 }
