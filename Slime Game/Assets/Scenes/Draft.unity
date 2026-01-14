@@ -165,6 +165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 8620214281233145340, guid: 0c60f9e8f8120a84da3d6564da59f4f3, type: 3}
   draftParent: {fileID: 2123196816}
+  cardMaterials:
+  - {fileID: 2100000, guid: c6b3cbb405595284c8cfa4aabc59cf43, type: 2}
+  - {fileID: 2100000, guid: f90fa87c5e3dbf3418dcf6df739ed4e3, type: 2}
 --- !u!1 &258645680
 GameObject:
   m_ObjectHideFlags: 0

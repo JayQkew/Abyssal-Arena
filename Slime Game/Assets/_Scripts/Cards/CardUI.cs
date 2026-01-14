@@ -18,6 +18,8 @@ namespace Cards
         [SerializeField] private TextMeshProUGUI header;
         [SerializeField] private TextMeshProUGUI description;
         [SerializeField] private Image icon;
+
+        [SerializeField] private Image background;
         
         private WaitForSeconds _submitWait = new WaitForSeconds(1f);
         private Draft _draft;
@@ -26,12 +28,14 @@ namespace Cards
             _draft = AppState.Instance.gameplayState.draftState;
         }
 
-        public void SetCardUI(Card c)
+        public void SetCardUI(Card c, Material m)
         {
             card = c;
             header.SetText(c.name);
             description.SetText(c.description);
             icon.sprite = c.icon;
+            
+            background.material = m;
         }
 
         public void OnSelect(BaseEventData eventData)

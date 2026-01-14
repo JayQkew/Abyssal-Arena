@@ -1,4 +1,3 @@
-using System;
 using AppStates.GameplayStates;
 using Cards;
 using Multiplayer;
@@ -12,6 +11,7 @@ namespace AppStates.SceneHandler
     {
         [SerializeField] private GameObject cardPrefab;
         [SerializeField] private Transform draftParent;
+        [SerializeField] private Material[] cardMaterials;
 
         private Draft _draft;
 
@@ -30,7 +30,7 @@ namespace AppStates.SceneHandler
             for (int i = 0; i < draftedCards.Length; i++)
             {
                 GameObject card = Instantiate(cardPrefab, draftParent);
-                card.GetComponent<CardUI>().SetCardUI(draftedCards[i]);
+                card.GetComponent<CardUI>().SetCardUI(draftedCards[i], cardMaterials[_draft.lostPlayerIndex]);
                 if (i == 0) EventSystem.current.firstSelectedGameObject = card;
             }
         }

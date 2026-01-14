@@ -944,6 +944,7 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
     draftState:
+      lostPlayerIndex: 0
       lostPlayerDeck: {fileID: 0}
       draftSize: 3
       cards:
