@@ -1,3 +1,4 @@
+using Multiplayer;
 using TMPro;
 using UnityEngine;
 using Utilities;
@@ -25,7 +26,11 @@ namespace AppStates.SceneHandler
 
         private void Update()
         {
-            bool[] playersReady = Multiplayer.Instance.ready;
+            bool[] playersReady =
+            {
+                MultiplayerManager.Instance.players[0].ready,
+                MultiplayerManager.Instance.players[1].ready,
+            };
 
             readyTxt[0].SetActive(playersReady[0]);
             readyTxt[1].SetActive(playersReady[1]);

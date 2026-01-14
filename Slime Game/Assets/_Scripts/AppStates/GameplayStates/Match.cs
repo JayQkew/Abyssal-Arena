@@ -47,8 +47,9 @@ namespace AppStates.GameplayStates
 
                 if (countdown.IsFinished) onSuddenDeath.Invoke();
             }
-            
+#if UNITY_EDITOR
             PointTesting();
+#endif
         }
 
         public override void Exit()
@@ -59,10 +60,8 @@ namespace AppStates.GameplayStates
 
         private void PointTesting()
         {
-#if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.Alpha1)) PlayerPoint(0);
             else if (Input.GetKeyDown(KeyCode.Alpha2)) PlayerPoint(1);
-#endif
         }
 
         public void PlayerPoint(int playerIndex)

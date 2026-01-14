@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cards;
+using Multiplayer;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -11,8 +12,9 @@ namespace AppStates.GameplayStates
     [Serializable]
     public class Draft : GameplayState
     {
+        public int lostPlayerIndex;
         public Deck lostPlayerDeck;
-        
+
         public int draftSize;
         public List<Card> cards = new();
 
@@ -42,6 +44,7 @@ namespace AppStates.GameplayStates
                 availableCards.RemoveAt(randomIndex);
                 selectedCards[i] = card;
             }
+
             return selectedCards;
         }
     }

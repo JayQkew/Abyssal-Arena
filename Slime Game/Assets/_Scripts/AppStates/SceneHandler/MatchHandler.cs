@@ -1,3 +1,4 @@
+using Multiplayer;
 using UnityEngine;
 
 namespace AppStates.SceneHandler
@@ -11,10 +12,10 @@ namespace AppStates.SceneHandler
         private void Start()
         {
             // Spawns the player in their designated areas
-            GameObject[] players = Multiplayer.Instance.players;
             for (int i = 0; i < playerSpawns.Length; i++)
             {
-                SoftBody softBody = players[i].GetComponentInChildren<SoftBody>();
+                GameObject player = MultiplayerManager.Instance.players[i].player;
+                SoftBody softBody = player.GetComponentInChildren<SoftBody>();
                 softBody.MoveSoftBody(playerSpawns[i].position);
                 softBody.ResetVelocity();
             }

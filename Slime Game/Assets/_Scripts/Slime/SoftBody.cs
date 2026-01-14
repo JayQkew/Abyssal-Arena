@@ -124,8 +124,8 @@ public class SoftBody : MonoBehaviour
             int excludeLayer = LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer));
             cc.excludeLayers = excludeLayer;
             node.layer = LayerMask.LayerToName(gameObject.layer) == "SoftBody1"
-                ? LayerMask.NameToLayer("SoftBody2")
-                : LayerMask.NameToLayer("SoftBody1");
+                ? LayerMask.NameToLayer($"SoftBody2")
+                : LayerMask.NameToLayer($"SoftBody1");
 
             node.transform.SetParent(nodeParent == null ? transform : nodeParent);
 

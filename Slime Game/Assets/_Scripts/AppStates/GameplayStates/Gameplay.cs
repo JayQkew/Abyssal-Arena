@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cards;
+using Multiplayer;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,6 +24,9 @@ namespace AppStates.GameplayStates
         public override void Enter()
         {
             base.Enter();
+            
+            points[0] = 0;
+            points[1] = 0;
 
             _states = new Dictionary<GameplayStates, GameplayState>
             {
@@ -65,8 +69,9 @@ namespace AppStates.GameplayStates
             }
             else
             {
-                draftState.lostPlayerDeck = Multiplayer.Instance.players[1 - playerIndex].transform
+                draftState.lostPlayerDeck = MultiplayerManager.Instance.players[1 - playerIndex].player
                     .GetComponentInChildren<Deck>();
+                draftState.lostPlayerIndex = 1 - playerIndex;
                 SwitchState(GameplayStates.Draft); //with player that lost
             }
         }
