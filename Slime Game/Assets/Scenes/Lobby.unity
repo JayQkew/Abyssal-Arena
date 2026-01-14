@@ -190,6 +190,7 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
     draftState:
+      lostPlayerIndex: 0
       lostPlayerDeck: {fileID: 0}
       draftSize: 0
       cards: []
@@ -2173,6 +2174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3bc8bfb439e1e409ab5f37c6615044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: d8e8d24f40364884383c78e6f931f21d, type: 2}
   players:
   - input: {fileID: 0}
     player: {fileID: 0}
@@ -2186,22 +2188,6 @@ MonoBehaviour:
     layer: SoftBody2
     material: {fileID: 2100000, guid: ffed041588574ab48b8c3cf7d383d1a6, type: 2}
     face: {fileID: 2989195890708654521, guid: e504e32b1ad63d74aad2593013e9e470, type: 3}
-  playerInputs:
-  - {fileID: 0}
-  - {fileID: 0}
-  _players:
-  - {fileID: 0}
-  - {fileID: 0}
-  ready: 0000
-  layers:
-  - SoftBody1
-  - SoftBody2
-  materials:
-  - {fileID: 2100000, guid: b27fd7c44128cd94a8c7a53f7d0fb28f, type: 2}
-  - {fileID: 2100000, guid: ffed041588574ab48b8c3cf7d383d1a6, type: 2}
-  faces:
-  - {fileID: 9020617897985738172, guid: 626380fd3ad341447ad7d7a6dd51b51e, type: 3}
-  - {fileID: 9020617897985738172, guid: 626380fd3ad341447ad7d7a6dd51b51e, type: 3}
   spawnPoints: []
 --- !u!114 &1810239997
 MonoBehaviour:

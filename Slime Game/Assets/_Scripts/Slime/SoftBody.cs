@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Slime;
 using Stats;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -10,7 +11,7 @@ using UnityEngine.Serialization;
 //This video describes how he made the soft body, I inferred from this video to create this portable softbody script. 
 public class SoftBody : MonoBehaviour
 {
-    [SerializeField] private PlayerStats playerStats;
+    private PlayerStats _playerStats;
 
     [Range(3, 40), SerializeField] private int numberOfNodes;
     private float oldRadius;
@@ -40,7 +41,9 @@ public class SoftBody : MonoBehaviour
     private int[] _tris;
 
     private void Start() {
-        oldRadius = playerStats.Radius.min;
+        _playerStats = GetComponent<SlimeStats>().Stats;
+        
+        oldRadius = _playerStats.Radius.min;
         currRadius = oldRadius;
         CreateNodes();
         ArrangeNodes();

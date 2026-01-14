@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Slime;
 using Stats;
 using UnityEngine;
 
@@ -6,9 +8,14 @@ namespace Cards
 {
     public class Deck : MonoBehaviour
     {
-        [SerializeField] private PlayerStats playerStats;
+        private PlayerStats _playerStats;
         public Transform abilitiesParent;
 
-        public void AddCard(Card card) => playerStats.cards.Add(card);
+        private void Start()
+        {
+            _playerStats = GetComponent<SlimeStats>().Stats;
+        }
+
+        public void AddCard(Card card) => _playerStats.cards.Add(card);
     }
 }

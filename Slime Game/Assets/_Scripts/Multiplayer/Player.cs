@@ -1,4 +1,7 @@
 using System;
+using Cards;
+using Slime;
+using Stats;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Object = UnityEngine.Object;
@@ -16,7 +19,7 @@ namespace Multiplayer
         [SerializeField] private Material material;
         [SerializeField] private GameObject face;
 
-        public void SetPlayer(PlayerInput playerInput, int num, Transform parent, Transform spawnPos)
+        public void SetPlayer(PlayerInput playerInput, int num, Transform parent, Transform spawnPos, PlayerStats stats)
         {
             input = playerInput;
             player = playerInput.gameObject;
@@ -28,6 +31,8 @@ namespace Multiplayer
             Object.Instantiate(face, playerInput.gameObject.transform.GetChild(0).transform, false);
 
             playerInput.actions["Ready"].performed += ctx => ready = !ready;
+            
+            player.transform.GetChild(0).GetComponent<SlimeStats>().SetStats(stats, this);
         }
 
         private void SetSoftBody(PlayerInput playerInput)

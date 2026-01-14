@@ -8,7 +8,7 @@ namespace Slime
     {
         private SoftBody _softBody;
         private InputHandler _inputHandler;
-        [SerializeField] private PlayerStats playerStats;
+        private PlayerStats _playerStats;
 
         public bool moveConsumeFuel = true;
         public bool dashConsumeFuel = true;
@@ -23,7 +23,9 @@ namespace Slime
 
         private void Start()
         {
-            currFuel = playerStats.Fuel;
+            _playerStats = GetComponent<SlimeStats>().Stats;
+            
+            currFuel = _playerStats.Fuel;
             _inputHandler.onInflate.AddListener(Inflate);
             _inputHandler.onDeflate.AddListener(Deflate);
 
@@ -33,7 +35,7 @@ namespace Slime
         private void Update()
         {
             Move(_inputHandler.moveInput);
-            if (Grounded()) currFuel = playerStats.Fuel;
+            if (Grounded()) currFuel = _playerStats.Fuel;
             if (isInflated) _softBody.currRadius = SetSlimeRadius();
         }
 
@@ -57,7 +59,7 @@ namespace Slime
 
         private void MoveForce(Vector2 dir)
         {
-            float moveMult = playerStats.MoveSpeed;
+            float moveMult = _playerStats.MoveSpeed;
             foreach (Rigidbody2D rb in _softBody.nodesRb)
             {
                 if (rb.transform.position.y >= _softBody.transform.position.y)
@@ -75,7 +77,7 @@ namespace Slime
 
             isInflated = true;
             _softBody.currRadius = SetSlimeRadius();
-            _softBody.frequency = playerStats.Frequency.max;
+            _softBody.frequency = _playerStats.Frequency.max;
         }
 
         public void Deflate()
@@ -86,8 +88,8 @@ namespace Slime
             }
 
             isInflated = false;
-            _softBody.currRadius = playerStats.Radius.min;
-            _softBody.frequency = playerStats.Frequency.min;
+            _softBody.currRadius = _playerStats.Radius.min;
+            _softBody.frequency = _playerStats.Frequency.min;
         }
 
         public void Dash()
@@ -101,11 +103,11 @@ namespace Slime
                     float magnitude = rb.linearVelocity.magnitude;
                     Vector2 newVel = magnitude * _inputHandler.aimInput;
                     rb.linearVelocity = newVel;
-                    rb.AddForce(_inputHandler.aimInput * playerStats.DashForce,
+                    rb.AddForce(_inputHandler.aimInput * _playerStats.DashForce,
                         ForceMode2D.Impulse);
                 }
 
-                if (dashConsumeFuel) currFuel -= playerStats.DashCost;
+                if (dashConsumeFuel) currFuel -= _playerStats.DashCost;
             }
         }
 
@@ -131,14 +133,14 @@ namespace Slime
 
         private float SetSlimeRadius()
         {
-            float minRadius = playerStats.Radius.min;
-            float radiusDiff = playerStats.Radius.max - minRadius;
+            float minRadius = _playerStats.Radius.min;
+            float radiusDiff = _playerStats.Radius.max - minRadius;
             return radiusDiff + minRadius;
         }
 
         public void AirRefill(float amount)
         {
-            float maxFuel = playerStats.Fuel;
+            float maxFuel = _playerStats.Fuel;
             currFuel += amount;
 
             if (currFuel > maxFuel) currFuel = maxFuel;

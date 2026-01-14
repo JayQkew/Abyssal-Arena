@@ -1,4 +1,5 @@
 using System;
+using Stats;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -11,6 +12,7 @@ namespace Multiplayer
     {
         public static MultiplayerManager Instance { get; private set; }
         private PlayerInputManager _playerInputManager;
+        public PlayerStats playerStats;
         public Player[] players = new Player[2];
         [SerializeField] private Transform[] spawnPoints;
 
@@ -37,13 +39,17 @@ namespace Multiplayer
         {
             Player player = players[_playerInputManager.playerCount - 1];
             int playerIndex = _playerInputManager.playerCount - 1;
-            player.SetPlayer(playerInput, playerIndex, transform, spawnPoints[playerIndex]);
+            PlayerStats newStats = Instantiate(playerStats);
+            newStats.name = $"Player {playerIndex} Stats";
+            
+            player.SetPlayer(playerInput, playerIndex, transform, spawnPoints[playerIndex], newStats);
             _multiplayerCollider.OnPlayerJoined(playerInput);
         }
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            if (scene.name != "Draft" && scene.name != "StartScreen" && scene.name != "MapSelect" && scene.name != "Podium")
+            if (scene.name != "Draft" && scene.name != "StartScreen" && scene.name != "MapSelect" &&
+                scene.name != "Podium")
             {
                 spawnPoints = new Transform[2];
                 Transform playerSpawnPoints = GameObject.FindGameObjectWithTag("PlayerSpawns").transform;
