@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1074c30e40683274f8e9a1872f654593, type: 3}
+  m_Name: RepulsionAbility
+  m_EditorClassIdentifier: 
+  name: push
+  description: push object away when inflated
+  icon: {fileID: 6728078740956168734, guid: a14f02a6656bd3949b4666d6bfacd8f9, type: 3}
+  prefab: {fileID: 5523211014352339909, guid: 2f7014d52fd90984f8b96a60a33d082a, type: 3}
+  radius: 4
+  force: 7.5

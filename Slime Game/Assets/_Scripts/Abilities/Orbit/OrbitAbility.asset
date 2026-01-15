@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ce139f578dc4e409040b3b01becfb7, type: 3}
+  m_Name: OrbitAbility
+  m_EditorClassIdentifier: 
+  name: Orbit
+  description: objects that orbit around you
+  icon: {fileID: 7442159267756367299, guid: a14f02a6656bd3949b4666d6bfacd8f9, type: 3}
+  prefab: {fileID: 5444848231669535884, guid: 57059d7036a00384ea6fb372e69e04c9, type: 3}
+  speed: 90
+  recoveryTime: 2.5

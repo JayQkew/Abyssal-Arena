@@ -948,9 +948,9 @@ MonoBehaviour:
       lostPlayerDeck: {fileID: 0}
       draftSize: 3
       cards:
-      - {fileID: 11400000, guid: 8b03c7560122c254da4ac6af0bef90e1, type: 2}
-      - {fileID: 11400000, guid: 9c12f8b59406bf745b34b2136cdd58fe, type: 2}
-      - {fileID: 11400000, guid: 40262a142ea77e244a2022a1690ed515, type: 2}
+      - {fileID: 11400000, guid: 6d58247feeb27964e9ca570fc42e6a22, type: 2}
+      - {fileID: 11400000, guid: aeb4c26b2e43d7f449a682621976e9f9, type: 2}
+      - {fileID: 11400000, guid: 8c49d93ed9817324590f64d8dd006a21, type: 2}
     onScore:
       m_PersistentCalls:
         m_Calls: []

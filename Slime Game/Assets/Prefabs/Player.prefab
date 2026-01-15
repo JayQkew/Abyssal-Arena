@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3014630841701627682}
+  - component: {fileID: 8636116017739823679}
   m_Layer: 0
   m_Name: Abilities
   m_TagString: Untagged
@@ -31,6 +32,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7841749650710563833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8636116017739823679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335740777026997462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40446d7766cc574479312198f7c07708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  softBody: {fileID: 8747095788319027792}
 --- !u!1 &2562717163326446399
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,6 +80,7 @@ Transform:
   - {fileID: 848101850210052321}
   - {fileID: 7827600306226356359}
   - {fileID: 3014630841701627682}
+  - {fileID: 7819341301867912426}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4974373070765619878
@@ -412,6 +427,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893fa32481f252b40b0dbffbc16dba36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Stats>k__BackingField: {fileID: 0}
+  player:
+    input: {fileID: 0}
+    player: {fileID: 0}
+    ready: 0
+    layer: 
+    material: {fileID: 0}
+    face: {fileID: 0}
 --- !u!114 &7828041273076503282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,7 +447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92667a3675bf33a438fdf0eaab050ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: d8e8d24f40364884383c78e6f931f21d, type: 2}
   abilitiesParent: {fileID: 3014630841701627682}
 --- !u!114 &8747095788319027792
 MonoBehaviour:
@@ -438,7 +460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4cc2bbb5c6efc44aa25d442339cf2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: d8e8d24f40364884383c78e6f931f21d, type: 2}
   numberOfNodes: 11
   currRadius: 0.5
   nodeParent: {fileID: 7827600306226356359}
@@ -461,7 +482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff791b694f5245040ae11aa82e721cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: d8e8d24f40364884383c78e6f931f21d, type: 2}
   moveConsumeFuel: 1
   dashConsumeFuel: 1
   currFuel: 0
@@ -479,7 +499,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 6831925540554693987}
-  playerStats: {fileID: 11400000, guid: d8e8d24f40364884383c78e6f931f21d, type: 2}
 --- !u!50 &4492303020482217538
 Rigidbody2D:
   serializedVersion: 5
@@ -507,6 +526,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!1 &6307650870317815667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7819341301867912426}
+  m_Layer: 0
+  m_Name: SideKicks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7819341301867912426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6307650870317815667}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7841749650710563833}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6458235549772069158
 GameObject:
   m_ObjectHideFlags: 0

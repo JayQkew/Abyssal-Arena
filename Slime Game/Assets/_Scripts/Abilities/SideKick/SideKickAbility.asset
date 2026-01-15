@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912c711dbf26e2448a78c68c90832cc5, type: 3}
+  m_Name: SideKickAbility
+  m_EditorClassIdentifier: 
+  name: side kick
+  description: a lil guy that moves with you
+  icon: {fileID: 2530920999617147776, guid: a14f02a6656bd3949b4666d6bfacd8f9, type: 3}
+  prefab: {fileID: 4805063804470983897, guid: 9be4decbca41de547b91731a74af2eda, type: 3}
+  speed: 1

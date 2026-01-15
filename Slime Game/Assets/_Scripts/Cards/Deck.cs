@@ -16,6 +16,10 @@ namespace Cards
             _playerStats = GetComponent<SlimeStats>().Stats;
         }
 
-        public void AddCard(Card card) => _playerStats.cards.Add(card);
+        public void AddCard(Card card)
+        {
+            _playerStats.cards.Add(card);
+            card.Apply(this);
+        }
     }
 }
