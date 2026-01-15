@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: push
   description: push object away when inflated
-  icon: {fileID: 6728078740956168734, guid: a14f02a6656bd3949b4666d6bfacd8f9, type: 3}
+  icon: {fileID: 1883975701, guid: 8dee22e9270648d4495702ed00f4c637, type: 3}
   prefab: {fileID: 5523211014352339909, guid: 2f7014d52fd90984f8b96a60a33d082a, type: 3}
   radius: 4
   force: 7.5

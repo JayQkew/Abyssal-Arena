@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Orbit
   description: objects that orbit around you
-  icon: {fileID: 7442159267756367299, guid: a14f02a6656bd3949b4666d6bfacd8f9, type: 3}
+  icon: {fileID: 364835494, guid: 8dee22e9270648d4495702ed00f4c637, type: 3}
   prefab: {fileID: 5444848231669535884, guid: 57059d7036a00384ea6fb372e69e04c9, type: 3}
   speed: 90
   recoveryTime: 2.5
+  hitForce: 5

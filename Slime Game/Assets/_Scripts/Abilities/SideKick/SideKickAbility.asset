@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: side kick
   description: a lil guy that moves with you
-  icon: {fileID: 2530920999617147776, guid: a14f02a6656bd3949b4666d6bfacd8f9, type: 3}
+  icon: {fileID: -539210482, guid: 8dee22e9270648d4495702ed00f4c637, type: 3}
   prefab: {fileID: 4805063804470983897, guid: 9be4decbca41de547b91731a74af2eda, type: 3}
   speed: 1

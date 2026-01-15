@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Pull
   description: pull objects towards you when not inflated
-  icon: {fileID: 352667614993179775, guid: a14f02a6656bd3949b4666d6bfacd8f9, type: 3}
+  icon: {fileID: -1198222708, guid: 8dee22e9270648d4495702ed00f4c637, type: 3}
   prefab: {fileID: 3268548383706596960, guid: 49c2d11357274d9489607843521b1db6, type: 3}
   radius: 4
   force: 7.5

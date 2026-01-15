@@ -1,9 +1,8 @@
-using System;
-using System.Globalization;
 using AppStates;
 using AppStates.GameplayStates;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -13,6 +12,7 @@ namespace UI
 
         [SerializeField] private TextMeshProUGUI[] gamePoints = new TextMeshProUGUI[2];
         [SerializeField] private TextMeshProUGUI[] setPoints = new TextMeshProUGUI[2];
+        [SerializeField] private Image[] crowns = new Image[2];
         [SerializeField] private TextMeshProUGUI time;
         public Color suddenDeathText;
 
@@ -33,7 +33,7 @@ namespace UI
 
         private void Start()
         {
-            SetPoint(_gameplayState.PointsToString());
+            SetPoint(_gameplayState.points);
         }
 
         private void OnEnable()
@@ -85,10 +85,10 @@ namespace UI
             }
         }
 
-        private void SetPoint(string[] points)
+        private void SetPoint(int[] points)
         {
-            setPoints[0].SetText(points[0]);
-            setPoints[1].SetText(points[1]);
+            crowns[0].fillAmount = (float)points[0] / 3;
+            crowns[1].fillAmount = (float)points[1] / 3;
         }
     }
 }

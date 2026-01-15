@@ -19,7 +19,7 @@ namespace AppStates.GameplayStates
 
         private Dictionary<GameplayStates, GameplayState> _states = new();
 
-        public UnityEvent<string[]> onScore;
+        public UnityEvent<int[]> onScore;
 
         public override void Enter()
         {
@@ -62,7 +62,7 @@ namespace AppStates.GameplayStates
         public void PlayerPoint(int playerIndex)
         {
             points[playerIndex]++;
-            onScore.Invoke(PointsToString());
+            onScore.Invoke(points);
             if (GameConditionMet(playerIndex))
             {
                 manager.SwitchState(AppStates.Podium); //with player that won
@@ -78,71 +78,7 @@ namespace AppStates.GameplayStates
 
         public bool GameConditionMet(int playerIndex)
         {
-            int currScore = points[playerIndex];
-            int otherScore = points[1 - playerIndex];
-
-            bool gamePoint = currScore >= 4;
-            bool leadByTwo = (currScore - otherScore) >= 2;
-
-            return gamePoint && leadByTwo;
-        }
-
-        public string[] PointsToString()
-        {
-            string[] p = new string[points.Length];
-
-            // 1. Check for Deuce or Advantage (Both players have at least 3 points / "40")
-            if (points[0] >= 3 && points[1] >= 3)
-            {
-                if (points[0] == points[1])
-                {
-                    p[0] = "40"; // Or "Deuce"
-                    p[1] = "40"; // Or "Deuce"
-                }
-                else if (points[0] > points[1])
-                {
-                    p[0] = "A";
-                    p[1] = ""; // Or empty string "" if you prefer
-                }
-                else
-                {
-                    p[0] = "";
-                    p[1] = "A";
-                }
-            }
-            // 2. Standard Scoring (No one has hit Deuce/Advantage territory yet)
-            else
-            {
-                for (int i = 0; i < points.Length; i++)
-                {
-                    // If the game is already won (e.g. 4 vs 1), this handles the winner's formatting
-                    // though your GameConditionMet usually catches this before UI updates.
-                    if (points[i] >= 4)
-                    {
-                        p[i] = "W";
-                    }
-                    else
-                    {
-                        switch (points[i])
-                        {
-                            case 0:
-                                p[i] = "00";
-                                break;
-                            case 1:
-                                p[i] = "15";
-                                break;
-                            case 2:
-                                p[i] = "30";
-                                break;
-                            case 3:
-                                p[i] = "40";
-                                break;
-                        }
-                    }
-                }
-            }
-
-            return p;
+            return points[playerIndex] == 3;
         }
     }
 
