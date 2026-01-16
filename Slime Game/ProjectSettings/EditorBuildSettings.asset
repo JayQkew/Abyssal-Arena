@@ -21,11 +21,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Maps/Map_Basic.unity
     guid: 8d00735c727ef2c40ac0bffdbd3ad227
   - enabled: 1
-    path: Assets/Scenes/Maps/Map_Setup 1.unity
-    guid: 20139392c217c4543905cb50af840186
+    path: Assets/Scenes/Maps/Map_2Ball.unity
+    guid: 234851002d26233418b79d0a30319a98
   - enabled: 1
-    path: Assets/Scenes/Maps/Map_Setup 2.unity
-    guid: b84cc94819a7f2b40842dc3f8ef8dc19
+    path: Assets/Scenes/Maps/Map_Ball.unity
+    guid: 9d4afbda1f3816a44b99620e890daaaf
+  - enabled: 1
+    path: Assets/Scenes/Maps/Map_Middle.unity
+    guid: d637f632a9453b94981ad1cf02a5db9b
+  - enabled: 1
+    path: Assets/Scenes/Maps/Map_Pitch.unity
+    guid: 8f4ec34209dc3a5429aca602505e64b8
+  - enabled: 1
+    path: Assets/Scenes/Maps/Map_Pitch Pill.unity
+    guid: fc00f8208a77e40459ea8c07d2713ff3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: d5a16493e544c33458c7045d2ba32418, type: 3}
   m_UseUCBPForAssetBundles: 0
