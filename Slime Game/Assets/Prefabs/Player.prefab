@@ -254,7 +254,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f2c33c9bf90418747b3b9a5f4a283879, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f2c33c9bf90418747b3b9a5f4a283879, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6
@@ -486,6 +486,9 @@ MonoBehaviour:
   dashConsumeFuel: 1
   currFuel: 0
   isInflated: 0
+  audioSource: {fileID: 6231319501165492113}
+  inflate: {fileID: 8300000, guid: 36020d32bb945dd4f8a81b2cf5b77258, type: 3}
+  dash: {fileID: 8300000, guid: 1a75c4d1c033c1449a047ce26552b039, type: 3}
 --- !u!114 &1123591544704936760
 MonoBehaviour:
   m_ObjectHideFlags: 0

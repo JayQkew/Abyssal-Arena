@@ -12,6 +12,7 @@ namespace Props
         public CircleCollider2D col;
         [SerializeField] protected SpriteRenderer sr;
         [SerializeField] private ParticleSystem particles;
+        [SerializeField] protected AudioSource audioSource;
 
         private void Awake()
         {
@@ -32,6 +33,7 @@ namespace Props
 
         protected void Use()
         {
+            audioSource.Play();
             particles.Play();
             Color c = sr.color;
             sr.color = new Color(c.r, c.g, c.b, 0f);

@@ -14,6 +14,11 @@ namespace Slime
         public bool dashConsumeFuel = true;
         public float currFuel;
         [SerializeField] private bool isInflated;
+        
+        [Header("Audio")]
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip inflate;
+        [SerializeField] private AudioClip dash;
 
         private void Awake()
         {
@@ -78,6 +83,8 @@ namespace Slime
             isInflated = true;
             _softBody.currRadius = SetSlimeRadius();
             _softBody.frequency = _playerStats.Frequency.max;
+            
+            audioSource.PlayOneShot(inflate);
         }
 
         public void Deflate()
@@ -108,6 +115,8 @@ namespace Slime
                 }
 
                 if (dashConsumeFuel) currFuel -= _playerStats.DashCost;
+                
+                audioSource.PlayOneShot(dash);
             }
         }
 

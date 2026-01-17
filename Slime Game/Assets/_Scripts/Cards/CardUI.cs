@@ -21,6 +21,9 @@ namespace Cards
 
         [SerializeField] private Image background;
         
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip chosen;
+        
         private WaitForSeconds _submitWait = new WaitForSeconds(1f);
         private Draft _draft;
         private void Start()
@@ -41,6 +44,7 @@ namespace Cards
         public void OnSelect(BaseEventData eventData)
         {
             anim.SetBool(Hover, true);
+            audioSource.Play();
         }
         
         
@@ -52,6 +56,7 @@ namespace Cards
         public void OnSubmit(BaseEventData eventData)
         {
             _draft.lostPlayerDeck.AddCard(card);
+            audioSource.PlayOneShot(chosen);
             StartCoroutine(Choose());
         }
 
