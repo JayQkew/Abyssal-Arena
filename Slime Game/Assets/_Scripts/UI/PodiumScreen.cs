@@ -1,6 +1,5 @@
 using AppStates;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PodiumScreen : MonoBehaviour
 {

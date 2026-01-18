@@ -65,6 +65,7 @@ namespace AppStates.GameplayStates
             onScore.Invoke(points);
             if (GameConditionMet(playerIndex))
             {
+                manager.podiumState.winner = playerIndex;
                 manager.SwitchState(AppStates.Podium); //with player that won
             }
             else

@@ -66,5 +66,10 @@ namespace Multiplayer
             Debug.Log(playerInput + " " + (active ? "active" : "inactive"));
             players[playerIndex].input.uiInputModule = active ? uiInputModule : null;
         }
+
+        public void DestroySelf()
+        {
+            Destroy(gameObject);
+        }
     }
 }

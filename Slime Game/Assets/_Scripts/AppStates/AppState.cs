@@ -59,6 +59,11 @@ namespace AppStates
             _currState = _states[nextState];
             _currState.Enter();
         }
+
+        public void DestroySelf()
+        {
+            Destroy(gameObject);
+        }
     }
 
     public abstract class State

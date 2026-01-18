@@ -1,4 +1,5 @@
 using System;
+using Multiplayer;
 using UnityEngine.SceneManagement;
 
 namespace AppStates
@@ -6,6 +7,7 @@ namespace AppStates
     [Serializable]
     public class Podium : State
     {
+        public int winner;
         public override void Enter()
         {
             base.Enter();
@@ -18,6 +20,8 @@ namespace AppStates
 
         public override void Exit()
         {
+            manager.DestroySelf();
+            MultiplayerManager.Instance.DestroySelf();
         }
     }
 }
