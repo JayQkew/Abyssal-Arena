@@ -84,7 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6247906980257276481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +110,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8655118654932764592}
     m_Modifications:
+    - target: {fileID: 317361964377903825, guid: d952785be9e96a048875825d4465f7dc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317361964377903825, guid: d952785be9e96a048875825d4465f7dc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317361964377903825, guid: d952785be9e96a048875825d4465f7dc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317361964377903825, guid: d952785be9e96a048875825d4465f7dc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 549695146195319897, guid: d952785be9e96a048875825d4465f7dc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -152,11 +168,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1727362787289977643, guid: d952785be9e96a048875825d4465f7dc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 1727362787289977643, guid: d952785be9e96a048875825d4465f7dc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 1727362787289977643, guid: d952785be9e96a048875825d4465f7dc, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -192,11 +208,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6024029794740741934, guid: d952785be9e96a048875825d4465f7dc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 6024029794740741934, guid: d952785be9e96a048875825d4465f7dc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 26.79
+      value: 191.79001
       objectReference: {fileID: 0}
     - target: {fileID: 6024029794740741934, guid: d952785be9e96a048875825d4465f7dc, type: 3}
       propertyPath: m_AnchoredPosition.y
